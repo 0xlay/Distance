@@ -7,8 +7,8 @@
 #include <vector>
 #include <string>
 
-#include "SmartHandle.hpp"
-#include "Exception.hpp"
+#include "smart_handle.hpp"
+#include "winapi_exception.hpp"
 
 #include <boost/json.hpp>
 

@@ -97,13 +97,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general\include;$(_BOOST_LIB_);$(SolutionDir)Client\include;$(_XSTAR_LIB_)\XStarUserSpace\include;$(SolutionDir)ProcessManager\include;$(SolutionDir)Blocker\include;$(SolutionDir)Screenshot\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general\include;$(_BOOST_LIB_);$(SolutionDir)Client\include;$(SolutionDir)XStar\user_space\include;$(SolutionDir)ProcessManager\include;$(SolutionDir)Blocker\include;$(SolutionDir)Screenshot\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(_BOOST_LIB_)\stage\x86\lib;$(_XSTAR_LIB_)\bin\Win32\Debug\;$(SolutionDir)\bin\Win32\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>XStarUserSpace.lib;general.lib;ProcessManager.lib;Blocker.lib;Screenshot.lib;$(SDK_LIB_PATH)Fwpuclnt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(_BOOST_LIB_)\stage\x86\lib;$(SolutionDir)XStar\bin\Win32\Debug\;$(SolutionDir)\bin\Win32\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>user_space.lib;general.lib;ProcessManager.lib;Blocker.lib;Screenshot.lib;$(SDK_LIB_PATH)Fwpuclnt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,15 +116,16 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general\include;$(_BOOST_LIB_);$(SolutionDir)Client\include;$(_XSTAR_LIB_)\XStarUserSpace\include;$(SolutionDir)ProcessManager\include;$(SolutionDir)Blocker\include;$(SolutionDir)Screenshot\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general\include;$(_BOOST_LIB_);$(SolutionDir)Client\include;$(SolutionDir)XStar\user_space\include;$(SolutionDir)ProcessManager\include;$(SolutionDir)Blocker\include;$(SolutionDir)Screenshot\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(_BOOST_LIB_)\stage\x86\lib;$(_XSTAR_LIB_)\bin\Win32\Release\;$(SolutionDir)\bin\Win32\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>XStarUserSpace.lib;general.lib;ProcessManager.lib;Blocker.lib;Screenshot.lib;$(SDK_LIB_PATH)Fwpuclnt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(_BOOST_LIB_)\stage\x86\lib;$(SolutionDir)XStar\bin\Win32\Release\;$(SolutionDir)\bin\Win32\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>user_space.lib;general.lib;ProcessManager.lib;Blocker.lib;Screenshot.lib;$(SDK_LIB_PATH)Fwpuclnt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -133,13 +135,14 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general\include;$(_BOOST_LIB_);$(SolutionDir)Client\include;$(_XSTAR_LIB_)\XStarUserSpace\include;$(SolutionDir)ProcessManager\include;$(SolutionDir)Blocker\include;$(SolutionDir)Screenshot\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general\include;$(_BOOST_LIB_);$(SolutionDir)Client\include;$(SolutionDir)XStar\user_space\include;$(SolutionDir)ProcessManager\include;$(SolutionDir)Blocker\include;$(SolutionDir)Screenshot\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(_BOOST_LIB_)\stage\x64\lib\;$(_XSTAR_LIB_)\bin\x64\Debug\;$(SolutionDir)\bin\x64\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>XStarUserSpace.lib;general.lib;ProcessManager.lib;Blocker.lib;Screenshot.lib;$(SDK_LIB_PATH)Fwpuclnt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(_BOOST_LIB_)\stage\x64\lib\;$(SolutionDir)XStar\bin\x64\Debug\;$(SolutionDir)\bin\x64\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>user_space.lib;general.lib;ProcessManager.lib;Blocker.lib;Screenshot.lib;$(SDK_LIB_PATH)Fwpuclnt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,15 +154,16 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)general\include;$(_BOOST_LIB_);$(SolutionDir)Client\include;$(_XSTAR_LIB_)\XStarUserSpace\include;$(SolutionDir)ProcessManager\include;$(SolutionDir)Blocker\include;$(SolutionDir)Screenshot\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)general\include;$(_BOOST_LIB_);$(SolutionDir)Client\include;$(SolutionDir)XStar\user_space\include;$(SolutionDir)ProcessManager\include;$(SolutionDir)Blocker\include;$(SolutionDir)Screenshot\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(_BOOST_LIB_)\stage\x64\lib\;$(_XSTAR_LIB_)\bin\x64\Release\;$(SolutionDir)\bin\x64\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>XStarUserSpace.lib;general.lib;ProcessManager.lib;Blocker.lib;Screenshot.lib;$(SDK_LIB_PATH)Fwpuclnt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(_BOOST_LIB_)\stage\x64\lib\;$(SolutionDir)XStar\bin\x64\Release\;$(SolutionDir)\bin\x64\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>user_space.lib;general.lib;ProcessManager.lib;Blocker.lib;Screenshot.lib;$(SDK_LIB_PATH)Fwpuclnt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>

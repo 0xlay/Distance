@@ -2,6 +2,7 @@
 #define _DISTANCE_LOGGER_HPP_
 
 #include <fstream>
+#include <sstream>
 #include <chrono>
 #include <tchar.h>
 #include <stdexcept>

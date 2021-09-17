@@ -8,7 +8,7 @@
 #endif
 
 #include <Windows.h>
-#include "Exception.hpp"
+#include "winapi_exception.hpp"
 
 namespace Distance
 {

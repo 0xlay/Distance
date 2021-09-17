@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include <string>
 #include <sstream>
-#include "Exception.hpp"
+#include "winapi_exception.hpp"
 
 
 #ifdef SCREENSHOT_EXPORTS

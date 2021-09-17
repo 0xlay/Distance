@@ -7,8 +7,8 @@
 #include <memory>
 #include <string>
 
-#include "Exception.hpp"
-#include "StartWinDriver.hpp"
+#include "winapi_exception.hpp"
+#include "start_win_driver.hpp"
 #include "NativeAPI.hpp"
 
 #define NETFILTER_LOGFILE_NAME "logs\\netlog.txt"

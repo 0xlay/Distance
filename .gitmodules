@@ -1,0 +1,3 @@
+[submodule "XStar"]
+	path = XStar
+	url = https://github.com/0xlay/XStar.git

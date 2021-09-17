@@ -5,7 +5,7 @@
 #include <boost/json.hpp>
 #include <Windows.h>
 #include <string>
-#include "Exception.hpp"
+#include "winapi_exception.hpp"
 
 
 namespace Distance

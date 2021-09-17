@@ -4,8 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcxproj", "{B9391899-C4CD-46CE-BB51-D5B26C09BE1F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D120B532-7CCD-4824-8A2B-E6D86B07040F} = {D120B532-7CCD-4824-8A2B-E6D86B07040F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Client.vcxproj", "{77F77C63-1BB1-4827-8989-4E43D9248F32}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D120B532-7CCD-4824-8A2B-E6D86B07040F} = {D120B532-7CCD-4824-8A2B-E6D86B07040F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Keylogger", "Keylogger\Keylogger.vcxproj", "{6151BE0F-50C3-4195-A549-C8DBE21ABA6D}"
 EndProject

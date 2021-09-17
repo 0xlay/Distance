@@ -10,7 +10,7 @@
 #include "ServerConfigurator.hpp"
 
 #include "ComputerInfo.hpp"
-#include "NamedPipe.hpp"
+#include "named_pipe.hpp"
 
 namespace Distance
 {

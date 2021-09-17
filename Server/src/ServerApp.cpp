@@ -34,7 +34,7 @@ namespace Distance
         {
             xstar::NamedPipeServer pipeServer(
                 _T("\\\\.\\pipe\\DistanceGUIPipeServer"), 
-                xstar::PipeDircetion::InOut
+                xstar::PipeDirection::InOut
             );
             pipeServer.connect();
 
