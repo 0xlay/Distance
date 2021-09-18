@@ -10,10 +10,6 @@ int WINAPI wWinMain(
     [[maybe_unused]] int nShowCmd
 )
 {
-    auto clientApplication = Distance::ClientApp::create();
-
-    clientApplication->run();
-
-    delete clientApplication;
+    Distance::ClientApp::getInstance()->run();
     return 0;
 }

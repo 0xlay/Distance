@@ -25,13 +25,19 @@ namespace Distance
     {
     public:
         ClientApp(const ClientApp&) = delete;
-        void operator=(const ClientApp&) = delete;
+        ClientApp& operator=(const ClientApp&) = delete;
+        ClientApp(ClientApp&&) = delete;
+        ClientApp& operator=(ClientApp&&) = delete;
 
-        static ClientApp* create();
+        static ClientApp* getInstance();
         void run();
 
     private:
         ClientApp() = default;
+        ~ClientApp()
+        {
+            delete app_;
+        }
 
     private:
         boost::asio::io_context ioContext_;

