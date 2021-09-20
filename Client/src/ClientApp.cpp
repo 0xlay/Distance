@@ -19,8 +19,6 @@ namespace Distance
 
     void ClientApp::run()
     {
-        Logger::make()->configure(_T("logs/"));
-
         ClientConfigurator configurator("client_settings.json");
 
         TcpClientSettings settings;

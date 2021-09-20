@@ -1,6 +1,8 @@
 #include "ClientApp.hpp"
 
-
+using Distance::Logger;
+using Distance::ClientApp;
+using Distance::LoggerFileStream;
 
 _Use_decl_annotations_
 int WINAPI wWinMain(
@@ -10,6 +12,7 @@ int WINAPI wWinMain(
     [[maybe_unused]] int nShowCmd
 )
 {
-    Distance::ClientApp::getInstance()->run();
+    Logger::make()->configure(std::make_unique<LoggerFileStream>(_T("logs/")));
+    ClientApp::getInstance()->run();
     return 0;
 }

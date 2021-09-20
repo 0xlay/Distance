@@ -3,8 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+Tests/
 Client/settings.json
-
 *client_settings.json
 *server_settings.json
 

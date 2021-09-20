@@ -25,8 +25,8 @@ namespace Distance
     {
     public:
         ClientApp(const ClientApp&) = delete;
-        ClientApp& operator=(const ClientApp&) = delete;
         ClientApp(ClientApp&&) = delete;
+        ClientApp& operator=(const ClientApp&) = delete;
         ClientApp& operator=(ClientApp&&) = delete;
 
         static ClientApp* getInstance();
