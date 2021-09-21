@@ -1,4 +1,6 @@
 # Distance
+The Distance application is intended to control and watching for the educational process.</br>
+If a student uses the lab PC for his purposes, the teacher or other responsible person, must block access to the lab PC.
 
 ## Dependecies
 * [BOOST (JSON, ASIO)][1]
