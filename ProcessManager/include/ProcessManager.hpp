@@ -1,44 +1,31 @@
-#ifndef _DISTANCE_PROCESS_MANAGER_HPP_
-#define _DISTANCE_PROCESS_MANAGER_HPP_
+#pragma once
 
 #include <Windows.h>
 #include <TlHelp32.h>
-
 #include <vector>
-#include <string>
-
-#include "smart_handle.hpp"
-#include "winapi_exception.hpp"
-
-#include <boost/json.hpp>
-
-#ifdef PROCESS_MANAGER_EXPORTS
-#define PROCESS_MANAGER_API __declspec(dllexport)
-#else
-#define PROCESS_MANAGER_API __declspec(dllimport)
-#endif
+#include <variant>
 
 
-namespace Distance
+namespace Distance::ProcessManager
 {
     using ProcessList = std::vector<PROCESSENTRY32>;
+	using ErrorCode = DWORD;
 
-    class PROCESS_MANAGER_API ProcessManager
-    {
-    public:
-        ProcessManager() = delete;
-        ~ProcessManager() = delete;
+    /*
+    * @brief The ProcessTerminate function terminates process by its ID.
+    * 
+    * @param[in] pid - process identifier
+    * 
+    * @return 0 if success, otherwise error code
+    */
+    ErrorCode ProcessTerminate(DWORD pid);
+    
+    /*
+    * @brief The GetProcessList function gets system process list
+    * 
+    * @return ProcessList if success, otherwise error code. You must check 
+    * return value with help the std::holds_alternative<T>(value) function
+    */
+    std::variant<ProcessList, ErrorCode> GetProcessList();
 
-        static ProcessList& update();
-        static void terminate(DWORD pid);
-
-    private:
-        inline static ProcessList* processes_ = new ProcessList();
-    };
-
-    std::string PROCESS_MANAGER_API ProcessListPackToJson(const ProcessList& processList);
-
-
-} // Distance
-
-#endif // _DISTANCE_PROCESS_MANAGER_HPP_
+} // Distance::ProcessManager

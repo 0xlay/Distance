@@ -1,0 +1,4 @@
+LIBRARY ProcessManager
+EXPORTS
+	ProcessTerminate
+	GetProcessList

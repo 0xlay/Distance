@@ -1,0 +1,6 @@
+LIBRARY PcInfo
+EXPORTS
+	GetRamInfo
+	GetCpuInfo
+	GetLocalName
+	GetLocalIp

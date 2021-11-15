@@ -1,38 +1,29 @@
-#ifndef _DISTANCE_SCREENSHOT_APP_HPP_
-#define _DISTANCE_SCREENSHOT_APP_HPP_
+#pragma  once
 
 #include <Windows.h>
-#include <string>
 #include <sstream>
-#include "winapi_exception.hpp"
-
-
-#ifdef SCREENSHOT_EXPORTS
-#define SCREENSHOT_API __declspec(dllexport)
-#else
-#define SCREENSHOT_API __declspec(dllimport)
-#endif
+#include <variant>
 
 
 namespace Distance
 {
+    using ErrorCode = DWORD;
+    using Bitmap = std::string;
 
-    class SCREENSHOT_API Screenshot
+    /*
+    * @brief The Screenshot class implements logic for creating a screenshot
+    */
+    class Screenshot
     {
     public:
         Screenshot();
 
-        void create(
-            int x1 = GetSystemMetrics(SM_XVIRTUALSCREEN), 
-            int y1 = GetSystemMetrics(SM_YVIRTUALSCREEN), 
-            int x2 = GetSystemMetrics(SM_CXVIRTUALSCREEN), 
-            int y2 = GetSystemMetrics(SM_CYVIRTUALSCREEN)
-        );
+        DWORD create(int coordX, int coordY, int widthX, int heightY);
 
-        std::string getBMP();
+        std::variant<Bitmap, ErrorCode> getImage();
 
     private:
-        void createBitmapInfoStruct();
+        DWORD createBitmapInfoStruct();
 
     private:
         HBITMAP Bitmap_;
@@ -46,7 +37,25 @@ namespace Distance
         };
     };
 
-    extern SCREENSHOT_API std::string CreateScreenshot();
+    /*
+    * @brief The CreateScreenshot function creates a screenshot by coordinates
+    * 
+    * @param[in] coordX - the coordinates for the left side of the virtual screen. Example: "GetSystemMetrics(SM_XVIRTUALSCREEN)"
+    * @param[in] coordY - the coordinates for the top of the virtual screen. Example: "GetSystemMetrics(SM_YVIRTUALSCREEN)"
+    * @param[in] widthX - the width of the virtual screen. Example: "GetSystemMetrics(SM_CXVIRTUALSCREEN)"
+    * @param[in] heightY - the height of the virtual screen. Example: "GetSystemMetrics(SM_CYVIRTUALSCREEN)"
+    * 
+	* @return Bitmap if success, otherwise error code. You must check
+	* return value with help the std::holds_alternative<T>(value) function
+    */
+    std::variant<Bitmap, ErrorCode> CreateScreenshot(int coordX, int coordY, int widthX, int heightY);
+
+    /*
+    * @brief The CreateFullScreenshot function creates a full screenshot
+    * 
+	* @return Bitmap if success, otherwise error code. You must check
+	* return value with help the std::holds_alternative<T>(value) function
+    */
+    std::variant<Bitmap, ErrorCode> CreateFullScreenshot();
 
 } // Distance
-#endif // _DISTANCE_SCREENSHOT_APP_HPP_

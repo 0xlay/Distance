@@ -23,5 +23,18 @@
     <ClInclude Include="include\ProcessManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource\ProcessManager.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProcessManager.def">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
