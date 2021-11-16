@@ -40,6 +40,7 @@
 #define IDC_SCREENSHOT_STATIC           1014
 #define ID_SCREENSHOT_SAVE              1015
 #define ID_PROCESS_MANAGER_UPDATE       1015
+#define ID_SCREENSHOT_OPEN_FOLDER       1015
 #define ID_PROCESS_MANAGER_TERMINATE    1016
 #define ID_PROCESS_MANAGER_SAVEAS       1017
 #define IDC_PROCESS_MANAGER_LIST        1018
@@ -65,6 +66,7 @@
 #define IDC_EDIT_IP                     1034
 #define IDC_EDIT_RAM                    1035
 #define IDC_EDIT_CPU                    1036
+#define IDC_PICTURE_CONTROL_SCREENSHOT  1036
 #define ID_HELP_ABOUT                   32771
 #define ID_HELP_ABOUT32772              32772
 #define ID_SETTINGS                     32773
@@ -75,7 +77,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        152
 #define _APS_NEXT_COMMAND_VALUE         32774
-#define _APS_NEXT_CONTROL_VALUE         1036
+#define _APS_NEXT_CONTROL_VALUE         1037
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -159,6 +159,8 @@ namespace Distance::Network
         Message& copyFrom(const std::string& object);
         template <>
         Message& copyFrom(const std::wstring& object);
+        template <>
+        Message& copyFrom(const std::vector<std::byte>& data);
 
         template <class DataType>
         Message& copyTo(DataType& object);
@@ -166,6 +168,9 @@ namespace Distance::Network
         Message& copyTo(std::string& object);
         template <>
         Message& copyTo(std::wstring& object);
+        template <>
+        Message& copyTo(std::vector<std::byte>& data);
+
     private:
         std::vector<std::byte> data_;
         MessageHeader* header_;
@@ -178,7 +183,7 @@ namespace Distance::Network
     {
         static_assert(
             std::is_standard_layout<DataType>::value,
-            "The \'Message\' is supporting only POD, std::string or std::wstring"
+            "The \'Message\' is supporting only POD, std::string, std::wstring or std::vector"
             );
 
         resize(sizeof(object));
@@ -205,6 +210,15 @@ namespace Distance::Network
         return *this;
     }
 
+    template <>
+    inline Message& Message::copyFrom(const std::vector<std::byte>& data)
+    {
+        resize(data.size());
+        std::memcpy(data_.data() + sizeof(MessageHeader), data.data(), data.size());
+
+        return *this;
+    }
+
 
 
     template <class DataType>
@@ -212,7 +226,7 @@ namespace Distance::Network
     {
         static_assert(
             std::is_standard_layout<DataType>::value,
-            "The \'Message\' is supporting only POD, std::string or std::wstring"
+            "The \'Message\' is supporting only POD, std::string, std::wstring or std::vector"
             );
 
         std::memcpy(&object, data_.data() + sizeof(MessageHeader), sizeof(object));
@@ -234,6 +248,16 @@ namespace Distance::Network
     inline Message& Message::copyTo(std::wstring& object)
     {
         object = std::wstring(reinterpret_cast<wchar_t*>(data_.data() + sizeof(MessageHeader)));
+        resize(0);
+
+        return *this;
+    }
+
+    template <>
+    inline Message& Message::copyTo(std::vector<std::byte>& data)
+    {
+        data.resize(size());
+        memcpy(data.data(), data_.data() + sizeof(MessageHeader), data.size());
         resize(0);
 
         return *this;

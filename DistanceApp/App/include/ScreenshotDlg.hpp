@@ -12,7 +12,10 @@ public:
 		CWnd* pParent = nullptr
 	);
 
-	~ScreenshotDlg() override;
+	~ScreenshotDlg() override = default;
+
+	afx_msg void OnBnClickedCreate();
+	afx_msg void OnBnClickedOpenFolder();
 
 	// Dialog Data
 #ifdef AFX_DESIGN_TIME
@@ -20,20 +23,12 @@ public:
 #endif
 
 protected:
-	void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
-
+	void DoDataExchange(CDataExchange* pDX) override;
+	BOOL OnInitDialog() override;
 	DECLARE_MESSAGE_MAP()
-public:
-	afx_msg void OnBnClickedCreate();
-	afx_msg void OnBnClickedSave();
-	afx_msg void OnBnClickedSaveAs();
 
 private:
-	void saveToFile();
-
-private:
-	CStatic image_;
-	CString fileName_;
+	xstar::tstring folderName_;
 
 	Distance::Network::Message message_;
 	std::shared_ptr<Distance::Network::DefaultTcpServer> server_;

@@ -2,6 +2,7 @@
 
 #include "Module.hpp"
 #include <variant>
+#include <vector>
 
 
 namespace Distance::Module
@@ -10,7 +11,7 @@ namespace Distance::Module
     class Screenshot : public IModule
     {
 		using ErrorCode = DWORD;
-		using Bitmap = std::string;
+		using Bitmap = std::vector<std::byte>;
 
         using CreateScreenshotFunc = std::variant<Bitmap, ErrorCode>(*)(int coordX, int coordY, int widthX, int heightY);
         using CreateFullScreenshotFunc = std::variant<Bitmap, ErrorCode>(*)();

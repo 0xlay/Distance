@@ -1,14 +1,14 @@
 #pragma  once
 
 #include <Windows.h>
-#include <sstream>
+#include <vector>
 #include <variant>
 
 
 namespace Distance
 {
     using ErrorCode = DWORD;
-    using Bitmap = std::string;
+    using Bitmap = std::vector<std::byte>;
 
     /*
     * @brief The Screenshot class implements logic for creating a screenshot

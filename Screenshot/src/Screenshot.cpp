@@ -95,18 +95,15 @@ namespace Distance
         //
         // Saving to string stream, images in BMP format
         //
+        size_t infoHeaderSize = sizeof(BITMAPINFOHEADER) + bitmapInfoHeader->biClrUsed * sizeof(RGBQUAD);
+        Bitmap bmp(sizeof(BITMAPFILEHEADER) + infoHeaderSize + bitmapInfoHeader->biSizeImage);
 
-        std::stringstream ss;
-
-        ss.write(reinterpret_cast<char*>(&bitmapFileHeader), sizeof(BITMAPFILEHEADER));
-
-        ss.write(reinterpret_cast<char*>(bitmapInfoHeader), sizeof(BITMAPINFOHEADER)
-            + bitmapInfoHeader->biClrUsed * sizeof(RGBQUAD));
-
-        ss.write(reinterpret_cast<char*>(memory), bitmapInfoHeader->biSizeImage);
+        memcpy(bmp.data(), &bitmapFileHeader, sizeof(BITMAPFILEHEADER));
+        memcpy(bmp.data() + sizeof(BITMAPFILEHEADER), bitmapInfoHeader, infoHeaderSize);
+        memcpy(bmp.data() + sizeof(BITMAPFILEHEADER) + infoHeaderSize, memory, bitmapInfoHeader->biSizeImage);
 
         GlobalFree(memory);
-        return ss.str();
+        return bmp;
     }
 
     DWORD Screenshot::createBitmapInfoStruct()
