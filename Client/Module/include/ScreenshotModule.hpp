@@ -7,7 +7,9 @@
 
 namespace Distance::Module
 {
-
+    /*
+    * @brief The Screenshot class it is interface for control screenshot module
+    */
     class Screenshot : public IModule
     {
 		using ErrorCode = DWORD;

@@ -7,7 +7,9 @@
 
 namespace Distance::Module
 {
-    
+    /*
+    * @brief The IModule structure it is an interface, which must implement any module
+    */
     struct IModule
     {
         virtual void run() = 0;

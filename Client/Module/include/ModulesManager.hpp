@@ -9,9 +9,8 @@ namespace Distance
 {
 
     /*
-    * @brief The Module it is enumeration existing modules
+    * @brief The ModuleType it is enumeration existing modules
     */
-    
     enum class ModuleType : std::uint32_t
     {
         PcInfo,

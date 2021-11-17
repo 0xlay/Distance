@@ -5,7 +5,9 @@
 
 namespace Distance::Module
 {
-
+    /*
+    * @brief The PowerManager class it is interface for control PowerManager module
+    */
     class PowerManager : public IModule
     {
         using PmFunc = BOOL(*)();

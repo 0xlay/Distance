@@ -7,6 +7,9 @@ namespace Distance::Network
 {
 	enum class InternetProtocol;
 
+	/*
+	* The Server class it is an interface, which must implement any server
+	*/
 	class Server : public std::enable_shared_from_this<Server>
 	{
 	protected:

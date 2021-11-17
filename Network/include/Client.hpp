@@ -6,6 +6,9 @@
 namespace Distance::Network
 {
 
+	/*
+	* @brief The Client class it is an interface, which must implement any client
+	*/
 	class Client : public  std::enable_shared_from_this<Client>
 	{
 	protected:

@@ -23,6 +23,9 @@ namespace Distance::Module
 		};
 	}
 
+	/*
+	* @brief The PcInfo class it is interface for control PcInfo module
+	*/
 	class PcInfo : public IModule
 	{
 		using ErrorCode = DWORD;

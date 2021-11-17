@@ -8,7 +8,9 @@
 
 namespace Distance::Module
 {
-
+    /*
+    * @brief The ProcessManager class it is interface for control ProcessManager module
+    */
     class ProcessManager : public IModule
     {
 		using ProcessList = std::vector<PROCESSENTRY32>;

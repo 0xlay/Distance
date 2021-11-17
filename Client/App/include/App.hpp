@@ -12,7 +12,6 @@
 #include "ClientSetting.hpp"
 #include "ClientHandler.hpp"
 #include "ModulesManager.hpp"
-// #include "ComputerInfo.hpp"
 #include "Logger.hpp"
 #include "tstring.hpp"
 
