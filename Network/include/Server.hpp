@@ -14,29 +14,29 @@ namespace Distance::Network
 	{
 	protected:
 		using AcceptHandler =
-			void (*)(
-				std::shared_ptr<Server>,         /* access to server */
-				Message&,                        /* message */
-				const boost::system::error_code& /* error code */
-				);
+		std::function<void(
+			std::shared_ptr<Server>,         /* access to server */
+			Message&,                        /* message */
+			const boost::system::error_code& /* error code */
+			)>;
 
 		using SendHandler =
-			void (*)(
-				std::shared_ptr<Server>,          /* access to server */
-				size_t,                           /* client number */
-				const Message&,                   /* message */
-				const boost::system::error_code&, /* error code */
-				size_t                            /* bytes received */
-				);
+		std::function<void(
+			std::shared_ptr<Server>,          /* access to server */
+			size_t,                           /* client number */
+			const Message&,                   /* message */
+			const boost::system::error_code&, /* error code */
+			size_t                            /* bytes received */
+			)>;
 
 		using ReceiveHandler =
-			void (*)(
-				std::shared_ptr<Server>,          /* access to server */
-				size_t,                           /* client number */
-				Message&,                         /* message */
-				const boost::system::error_code&, /* error code */
-				size_t                            /* bytes sent */
-				);
+		std::function<void(
+			std::shared_ptr<Server>,          /* access to server */
+			size_t,                           /* client number */
+			Message&,                         /* message */
+			const boost::system::error_code&, /* error code */
+			size_t                            /* bytes sent */
+			)>;
 
 		using AsioTcpSocket = boost::asio::ip::tcp::socket;
 		using AsioUdpSocket = boost::asio::ip::udp::socket;

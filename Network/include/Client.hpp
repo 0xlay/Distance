@@ -12,28 +12,28 @@ namespace Distance::Network
 	class Client : public  std::enable_shared_from_this<Client>
 	{
 	protected:
-		using ConnectHandler =
-			void (*)(
-				std::shared_ptr<Client>,         /* access to client */
-				Message&,                        /* message */
-				const boost::system::error_code& /* error code */
-				);
+        using ConnectHandler =
+        std::function<void(
+			std::shared_ptr<Client>,              /* access to client */
+			Message&,                             /* message */
+			const boost::system::error_code&      /* error code */
+			)>;
 
 		using SendHandler =
-			void (*)(
+		std::function<void(
 				std::shared_ptr<Client>,          /* access to client */
 				const Message&,                   /* message */
 				const boost::system::error_code&, /* error code */
 				size_t                            /* bytes sent */
-				);
+				)>;
 
 		using ReceiveHandler =
-			void (*)(
+		std::function<void(
 				std::shared_ptr<Client>,          /* access to client */
 				Message&,                         /* message */
 				const boost::system::error_code&, /* error code */
 				size_t                            /* bytes received */
-				);
+				)>;
 
 		using AsioTcpSocket = boost::asio::ip::tcp::socket;
 		using AsioUdpSocket = boost::asio::ip::udp::socket;

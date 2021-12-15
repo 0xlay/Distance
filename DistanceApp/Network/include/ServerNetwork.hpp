@@ -18,7 +18,7 @@
 #include <memory>
 #include <fstream>
 #include <mutex>
-
+#include <functional>
 
 //
 // Boost library
