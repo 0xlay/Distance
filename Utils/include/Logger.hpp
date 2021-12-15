@@ -7,6 +7,30 @@
 
 namespace Distance::Utils
 {
+    /*
+    * @brief The PathInTimeFormat function adds the current time and ".log" extension to file name
+    * 
+    * @param[in] path - path to folder, which store log files
+    * @param[in] fileName - log file name
+    * @param[in] timeFormat - time format (https://en.cppreference.com/w/cpp/io/manip/put_time)
+    * 
+    * @return path to log file
+    */
+    [[nodiscard]] xstar::tstring PathInTimeFormat(
+        xstar::tstring_view path, xstar::tstring_view fileName, xstar::tstring_view timeFormat
+    );
+
+    /*
+    * @brief The CurrentTime function gets the current time
+    *
+    * @param[in] timeFormat - time format (https://en.cppreference.com/w/cpp/io/manip/put_time)
+    *
+    * @return time as string
+    */
+    [[nodiscard]] std::string CurrentTime(std::string_view timeFormat);
+    [[nodiscard]] std::wstring CurrentTime(std::wstring_view timeFormat);
+
+
 
     /*
     * @brief The LoggerStream structure is the interface, which must implement each, 
@@ -66,19 +90,6 @@ namespace Distance::Utils
         std::ofstream file_;
     };
 
-    /*
-    * @brief The PathInTimeFormat function adds the current time and ".log" extension to file name
-    * 
-    * @param[in] path - path to folder, which store log files
-    * @param[in] fileName - log file name
-    * @param[in] timeFormat - time format (https://en.cppreference.com/w/cpp/io/manip/put_time)
-    * 
-    * @return path to log file
-    */
-    [[nodiscard]] xstar::tstring PathInTimeFormat(
-        xstar::tstring_view path, xstar::tstring_view fileName, xstar::tstring_view timeFormat
-    );
-
 
 
     class Logger;
@@ -114,7 +125,13 @@ namespace Distance::Utils
         void write(Args&& ... args)
         {
             std::lock_guard lock(mutex_);
+
+            std::stringstream ss;
+            ss << "[" << CurrentTime("%c %Z") << "]: ";
+            logStream_->write(ss.str());
+
             write_impl(args...);
+
             logStream_->flush();
         }
 
@@ -122,7 +139,13 @@ namespace Distance::Utils
         void writeln(Args&& ... args)
         {
             std::lock_guard lock(mutex_);
+
+            std::stringstream ss;
+            ss << "[" << CurrentTime("%c %Z") << "]: ";
+            logStream_->write(ss.str());
+
             write_impl(args...);
+
             logStream_->write('\n');
             logStream_->flush();
         }

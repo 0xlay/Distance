@@ -76,16 +76,35 @@ namespace Distance::Utils
 		tstring_view path, tstring_view fileName, tstring_view timeFormat
 	)
 	{
+		tstringstream ss;
+		ss << path << fileName << CurrentTime(timeFormat) << _T(".log");
+		return ss.str();
+	}
+
+	std::string CurrentTime(std::string_view timeFormat)
+	{
 		const auto now = std::chrono::system_clock::now();
 		const std::time_t time = std::chrono::system_clock::to_time_t(now);
+		std::stringstream ss;
 
 #pragma warning(push)
 #pragma warning(disable : 4996)
-		tstringstream ss;
-		ss << path << fileName
-			<< std::put_time(std::localtime(&time), timeFormat.data()) << _T(".log");
-		return ss.str();
+		ss << std::put_time(std::localtime(&time), timeFormat.data());
 #pragma warning(pop)
+		return ss.str();
+	}
+
+	std::wstring CurrentTime(std::wstring_view timeFormat)
+	{
+		const auto now = std::chrono::system_clock::now();
+		const std::time_t time = std::chrono::system_clock::to_time_t(now);
+		std::wstringstream ss;
+
+#pragma warning(push)
+#pragma warning(disable : 4996)
+		ss << std::put_time(std::localtime(&time), timeFormat.data());
+#pragma warning(pop)
+		return ss.str();
 	}
 
 	//--------------------------------------------------------------------------
