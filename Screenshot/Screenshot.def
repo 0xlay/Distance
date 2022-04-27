@@ -1,4 +1,0 @@
-LIBRARY Screenshot
-EXPORTS
-	CreateScreenshot
-	CreateFullScreenshot

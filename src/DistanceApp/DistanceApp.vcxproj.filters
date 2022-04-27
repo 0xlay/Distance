@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App\include\DistanceApp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\MainDlg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\Framework.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\resource\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\resource\Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\pch.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\SettingsDlg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\ScreenshotDlg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\ProcessManagerDlg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\PowerManagerDlg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\NetfilterDlg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\KeyloggerDlg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\SystemInfoDlg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\include\DefaultTcpServer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\include\ServerSettings.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\include\ServerNetwork.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\include\ServerHandlers.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\App.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="App\include\Error.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App\src\DistanceApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\MainDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\SettingsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\ScreenshotDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\ProcessManagerDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\PowerManagerDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\NetfilterDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\KeyloggerDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\SystemInfoDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\src\DefaultTcpServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\src\ServerSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\src\ServerHandlers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App\src\Error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="App\resource\DistanceApp.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App\resource\DistanceApp.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="App\resource\DistanceApp.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="App\resource\Distance.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="App\resource\pc.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

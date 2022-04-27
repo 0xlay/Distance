@@ -1,5 +1,0 @@
-LIBRARY PowerManager
-EXPORTS
-	PmShutdown
-	PmReboot
-	PmLogout

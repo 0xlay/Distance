@@ -1,0 +1,99 @@
+;
+; Dkflt.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Keyboard
+ClassGuid={4D36E96B-E325-11CE-BFC1-08002BE10318}
+Provider=%ManufacturerName%
+DriverVer=04/05/2022,1.0.0.0
+CatalogFile=Dkflt.cat
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1=%DiskName%,,,""
+
+[SourceDisksFiles]
+Dkflt.sys=1,,
+
+
+;
+; Driver install
+;
+
+[DefaultInstall.NT]
+DriverVer=04/05/2022,1.0.0.0
+CopyFiles=Dkflt.CopyFiles
+AddReg=DkfltRegInstall
+
+[DefaultInstall.NT.Services]
+AddService=%DriverName%,,Dkflt_Service_Install
+
+[DkfltRegInstall]
+HKLM,%REG_SUBKEY%,"UpperFilters",%REG_MULTI_SZ_APPEND%,%DriverName%
+
+[Dkflt_Service_Install]
+DisplayName	   = %DriverName%
+DriverDesc     = %DriverDescription%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\%DriverName%.sys
+
+
+;
+; Driver uninstall
+;
+
+[DefaultUninstall.NT]
+DelFiles=Dkflt.DeleteFiles
+DelReg=DkfltRegUninstall
+
+[DefaultUninstall.NT.Services]
+DelService=%DriverName%
+
+[DkfltRegUninstall]
+HKLM,%REG_SUBKEY%,"UpperFilters",%REG_MULTI_SZ_DEL_SUBSTR%,%DriverName%
+
+
+;
+; Files
+;
+
+[Dkflt.CopyFiles]
+%DriverName%.sys
+
+[Dkflt.DeleteFiles]
+%DriverName%.sys
+
+
+;
+; String section
+;
+
+[Strings]
+ManufacturerName="Distance"
+DiskName="Dkflt Source Disk"
+DriverName="Dkflt"
+DriverDescription="Dkflt is keyboard filter driver."
+
+;
+; Registry section
+;
+
+REG_SUBKEY="SYSTEM\CurrentControlSet\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}"
+REG_MULTI_SZ_APPEND=0x00010008
+REG_MULTI_SZ_REPLACE=0x00010000
+REG_MULTI_SZ_DEL_SUBSTR=0x00018002
+
+;
+; Service section
+;
+
+SERVICE_KERNEL_DRIVER=1
+SERVICE_DEMAND_START=3
+SERVICE_ERROR_NORMAL=1

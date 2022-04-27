@@ -3,9 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Especially for current project
 TODO.md
-Tests/
-Client/settings.json
+.vscode/
 *client_settings.json
 *server_settings.json
 
