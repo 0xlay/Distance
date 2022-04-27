@@ -1,3 +1,3 @@
-[submodule "XStar"]
+[submodule "vendor/XStar"]
 	path = vendor/XStar
 	url = https://github.com/0xlay/XStar.git
